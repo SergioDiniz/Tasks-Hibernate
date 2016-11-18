@@ -8,5 +8,13 @@
 </head>
 <body>
 
+	<form action="adicionaTask" method="post">
+		<label>Descrição:</label>
+		<input type="text" name="descricao" />
+		
+		
+		<input type="submit" value="enviar" />
+	</form>
+
 </body>
 </html>

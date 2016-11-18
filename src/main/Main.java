@@ -12,14 +12,18 @@ public class Main {
 
 		TaskDao dao = new TaskDao();
 		
-		Task t = new Task();
-		t.setDataCriacao(Calendar.getInstance());
-		t.setDescricao("Descrição");
-		t.setFinalizado(false);
+//		Task t = new Task();
+//		t.setDataCriacao(Calendar.getInstance());
+//		t.setDescricao("Descrição");
+//		t.setFinalizado(false);
+//		
+//		dao.addTask(t);
+//		
+//		System.out.println("ok!");
 		
-		dao.addTask(t);
-		
-		System.out.println("ok!");
+		for (Task t : dao.listarTask()) {
+			System.out.println(t.getDescricao());
+		}
 	}
 
 }

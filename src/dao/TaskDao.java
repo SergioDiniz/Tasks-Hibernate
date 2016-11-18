@@ -1,5 +1,9 @@
 package dao;
 
+import java.util.List;
+
+import javax.persistence.Query;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -29,6 +33,23 @@ public class TaskDao {
 			session.close();
 		}
 		
+	}
+	
+	public List<Task> listarTask(){
+		
+		List<Task> tasks;
+		
+		try {
+			
+			Query query = session.createQuery("from Task");
+			tasks = query.getResultList();
+			
+		} finally {
+			factory.close();
+			session.close();
+		}
+		
+		return tasks;
 	}
 	
 }
