@@ -16,10 +16,13 @@ public class TaskDao {
 	private SessionFactory factory;
 	
 	public TaskDao(){
+		long tempoInicial = System.currentTimeMillis();
 		
 		factory = new Configuration().configure().buildSessionFactory();
 		session = factory.openSession();
 		
+		long tempoFinal = System.currentTimeMillis();
+		System.out.println("tempo para Iniciar Dao: " + (tempoFinal - tempoInicial));
 	}
 	
 	public void addTask(Task task){
@@ -40,9 +43,11 @@ public class TaskDao {
 		List<Task> tasks;
 		
 		try {
-			
+			long tempoInicial = System.currentTimeMillis();
 			Query query = session.createQuery("from Task");
 			tasks = query.getResultList();
+			long tempoFinal = System.currentTimeMillis();
+			System.out.println("tempo para listar: " + (tempoFinal - tempoInicial));
 			
 		} finally {
 			factory.close();
